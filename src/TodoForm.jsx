@@ -22,10 +22,10 @@ export default class TodoForm extends Component {
         handleSubmit = event => {
                 event.preventDefault()
 
-                const task = this.state.todoValue
+                const todo = this.state.todoValue
 
                 // we are grabbing the handleAddingTodo method out of props, since we have it in props because it was passed down to the TodoForm(this component) from the TodoList component
-                this.props.handleAddingTodo(task)
+                this.props.handleAddingTodo(todo)
 
                 // this is simply clearing the input field after you hit the add button, for when you are ready to add another todo item
                 this.setState({todoValue: ''})
