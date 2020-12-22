@@ -23,7 +23,6 @@ export default class TodoForm extends Component {
                 event.preventDefault()
 
                 const task = this.state.todoValue
-                console.log(task);
 
                 // we are grabbing the handleAddingTodo method out of props, since we have it in props because it was passed down to the TodoForm(this component) from the TodoList component
                 this.props.handleAddingTodo(task)
