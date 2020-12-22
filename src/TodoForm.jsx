@@ -18,10 +18,25 @@ export default class TodoForm extends Component {
                 })
         }
 
+        // the handleSubmit method will always be dependent on the handleChange method above because it needs a valid value to submit (i.e todoValue)
+        handleSubmit = event => {
+                event.preventDefault()
+
+                const task = this.state.todoValue
+                console.log(task);
+
+                // we are grabbing the handleAddingTodo method out of props, since we have it in props because it was passed down to the TodoForm(this component) from the TodoList component
+                this.props.handleAddingTodo(task)
+
+                // this is simply clearing the input field after you hit the add button, for when you are ready to add another todo item
+                this.setState({todoValue: ''})
+                event.target.reset()
+        }
+
         render() {
                 return (
                         <div className="todo_form" style={{ width: '40%' }}>
-                                <form >
+                                <form onSubmit={this.handleSubmit}>
                                         <input 
                                                 type="text" 
                                                 placeholder="Add todo"
